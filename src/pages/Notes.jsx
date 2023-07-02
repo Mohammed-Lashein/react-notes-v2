@@ -3,7 +3,9 @@ import dummyNotes from "../dummy-notes";
 import { Link } from "react-router-dom";
 import { BsPlusLg } from "react-icons/bs";
 import NoteItem from "../components/NoteItem";
-const Notes = () => {
+
+const Notes = ({notes}) => {
+	/* Now we have access to the notes as a prop */
   /* In the NoteItem we passed the note object to
   each component because we will need it in the NoteItem
   component .  */
@@ -18,11 +20,11 @@ const Notes = () => {
 			</header>
 
 			<div className="notes__container">
-				{dummyNotes.map((note) => (
+				{notes.map((note) => (
 					<NoteItem key={note.id} note = {note}/>
 				))}
 			</div>
-			<Link className="btn add__btn">
+			<Link className="btn add__btn" to='/create-note'>
 				<BsPlusLg />
 			</Link>
 		</section>
