@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 import useCreateDate from "../components/useCreateDate";
 
@@ -8,6 +8,12 @@ const CreateNote = ({setNotes}) => {
 	const [title, setTitle] = useState("");
 	const [details, setDetails] = useState("");
 	const date = useCreateDate();
+	const navigate = useNavigate();
+	/* At first , I used the hook directly in the below condition and
+	didn't store it in a variable as the video . Then I went to try
+	the feature and an error was thrown . That's because hooks can't be
+	used in an if condition . So putting the hook in a variable and 
+	calling that variable in the condition is a genius maneuver.  */
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -27,6 +33,10 @@ const CreateNote = ({setNotes}) => {
 				new notes are added to the beginning instead of the 
 				being added to the end .  */
 			} );
+
+			// Redirect to homepage after creating a new note
+			navigate('/')
+
 		}
 		setTitle('')
 		setDetails('');
