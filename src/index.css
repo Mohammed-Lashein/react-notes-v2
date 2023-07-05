@@ -30,11 +30,14 @@ body {
 .btn {
     background: var(--color-bg-dark);
     border-radius: 0.8rem;
-    padding: 0.8rem;
+    padding: 0.5rem;
     font-size: 1.6rem;
     color: var(--color-white);
     box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
     transition: all 300ms ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn.lg {
@@ -165,9 +168,9 @@ h2 {
     position: fixed;
     bottom: 4rem;
     right: 3rem;
-    /* I modified the right to be 3rem istead of 7 rem so that it is
+    /* I modified the right to be 3rem instead of 7 rem so that it is
     directly beneath the search icon .  */
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
 /*Added styles on development*/
